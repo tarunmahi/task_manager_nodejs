@@ -1,8 +1,14 @@
+const {name}="";
+
 const getallTasks = (req,res)=>{
-    res.send(`get all tasks`)
+    const {name} = req.query
+    //const {name} = req.body
+    //const{name} = req.params 
+    res.send(` this is ${name}`)
 }
 const createtasks = (req,res)=>{
-    res.send(`create a task`)
+    const {name,mem_id} = req.body
+    res.send(`create a task of ${name} and his id is  ${mem_id}`)
 }
 const getTasks = (req,res)=>{
     res.send(`get a task`)
@@ -22,5 +28,4 @@ module.exports = {
     createtasks,
     updateTask,
     deletetask
-
 }
