@@ -1,4 +1,3 @@
-const {name}="";
 
 const getallTasks = (req,res)=>{
     const {name} = req.query
