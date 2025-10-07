@@ -28,20 +28,26 @@
 //         res.end('oops error');
     
 // })
-
 // server.listen(5000);
+const connectdb = require('./db/connect')
 const express = require('express')
 const app = express()
 const userroutes = require('./Routes/userroutes')
-
+require('dotenv').config()
+const start = async()=>{
+    try {
+      await connectdb(process.env.MONGO_URL)
+      app.listen(3000,console.log(`running on port ${port}`) )
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+start()
 app.use(express.json());
 //app.get('/',(req,res)=>res.send(`home`));
 app.use('/api/v1/tasks',userroutes);
 
 const port =3000
-app.listen(3000,()=>{
-    console.log(`running on port ${port}`);
-    
-} )
 
 
