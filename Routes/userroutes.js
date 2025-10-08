@@ -19,6 +19,4 @@ const {getallTasks,getTasks,createtasks,updateTask,deletetask } =require('../con
 
 router.route('/').get(getallTasks).post(createtasks);
 router.route('/:id').get(getTasks).patch(updateTask).delete(deletetask);
-
-
 module.exports=router;
